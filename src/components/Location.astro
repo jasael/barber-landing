@@ -1,0 +1,73 @@
+---
+// Location.astro - Barbershop location & Google Maps integration
+---
+
+<section id="location" class="relative py-24 bg-wood-950 overflow-hidden border-t border-wood-900/10">
+  <div class="max-width-container mx-auto px-6 relative z-10 w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    
+    <!-- Left Column: Hours & Address details -->
+    <div class="lg:col-span-5 flex flex-col space-y-8">
+      <div class="space-y-2">
+        <span class="text-xs tracking-[0.25em] text-gold-500 font-bold uppercase block">Encontranos</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-wood-50">
+          Ubicación y Horarios
+        </h2>
+        <p class="text-xs sm:text-sm text-wood-300 font-light leading-relaxed">
+          Estamos situados en el corazón de Palermo Soho, un espacio premium diseñado para desconectarse de la rutina diaria.
+        </p>
+      </div>
+
+      <!-- Address info cards -->
+      <div class="space-y-6">
+        <!-- Address -->
+        <div class="flex items-start space-x-4">
+          <div class="w-10 h-10 rounded bg-wood-900 border border-gold-500/20 flex items-center justify-center text-gold-400 flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xs tracking-widest text-wood-50 uppercase font-semibold">Dirección</h3>
+            <p class="text-sm text-wood-200 font-light mt-1">Honduras 4850, Palermo Soho</p>
+            <p class="text-xs text-wood-400 font-light">Ciudad Autónoma de Buenos Aires</p>
+          </div>
+        </div>
+
+        <!-- Working Hours -->
+        <div class="flex items-start space-x-4">
+          <div class="w-10 h-10 rounded bg-wood-900 border border-gold-500/20 flex items-center justify-center text-gold-400 flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-xs tracking-widest text-wood-50 uppercase font-semibold">Horario de Atención</h3>
+            <div class="text-sm text-wood-200 font-light mt-2 space-y-1">
+              <p class="flex justify-between w-64"><span>Martes a Viernes:</span> <span class="font-bold text-gold-400">11:00 - 20:00</span></p>
+              <p class="flex justify-between w-64"><span>Sábados:</span> <span class="font-bold text-gold-400">10:00 - 20:00</span></p>
+              <p class="flex justify-between w-64 text-wood-500"><span>Domingos y Lunes:</span> <span>Cerrado</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Google Maps Iframe -->
+    <div class="lg:col-span-7 relative w-full h-[350px] sm:h-[450px]">
+      <div class="absolute -inset-2 border border-gold-500/10 rounded-xl pointer-events-none"></div>
+      
+      <div class="w-full h-full rounded-lg overflow-hidden border border-gold-500/20 shadow-2xl relative">
+        <iframe
+          id="google-maps-embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.5422890562477!2d-58.431610423405786!3d-34.590453356801966!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb58eb0b1069b%3A0x6b132a2f4fa6ee3a!2sHonduras%204850%2C%20C1414BND%20CABA!5e0!3m2!1ses-419!2sar!4v1700000000000!5m2!1ses-419!2sar"
+          class="w-full h-full border-0 grayscale invert opacity-85 hover:opacity-100 transition-opacity duration-300"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Google Maps Location - Honduras 4850, Palermo Soho, CABA"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>

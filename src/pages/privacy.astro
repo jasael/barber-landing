@@ -1,0 +1,85 @@
+---
+// privacy.astro - Privacy Policy page
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Política de Privacidad | El Roble Barbershop"
+  description="Política de privacidad y protección de datos personales de El Roble Barbershop."
+>
+  <Header slot="header" />
+
+  <section class="relative py-24 bg-wood-950">
+    <div class="max-width-container mx-auto px-6 max-w-3xl relative z-10">
+      <!-- Back Button -->
+      <a
+        href="/"
+        id="back-to-home-btn"
+        class="inline-flex items-center space-x-2 text-xs tracking-widest text-gold-500 hover:text-gold-400 font-bold uppercase mb-12 transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        <span>Regresar al Inicio</span>
+      </a>
+
+      <!-- Document Heading -->
+      <div class="space-y-4 mb-12 border-b border-wood-900/30 pb-8">
+        <span class="text-xs tracking-[0.25em] text-gold-500 font-bold uppercase block">Legal</span>
+        <h1 class="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-wood-50">
+          Política de Privacidad
+        </h1>
+        <p class="text-xs text-wood-400 font-light">Última actualización: 9 de Mayo, 2026</p>
+      </div>
+
+      <!-- Legal Content -->
+      <div class="space-y-8 text-sm text-wood-200 font-light leading-relaxed">
+        <p>
+          En <strong>El Roble Barbershop</strong> nos comprometemos a resguardar la privacidad de todos nuestros clientes y visitantes. En esta política detallamos cómo recopilamos, usamos y protegemos los datos personales que nos facilitás a través de nuestro sitio web y formulario de reserva.
+        </p>
+
+        <div class="space-y-3">
+          <h2 class="font-serif text-xl font-bold text-wood-50">1. Información que Recopilamos</h2>
+          <p>
+            Cuando completás nuestro formulario de reserva online, recopilamos los siguientes datos de carácter personal:
+          </p>
+          <ul class="list-disc list-inside pl-4 space-y-1 text-xs text-wood-300">
+            <li>Nombre y apellido.</li>
+            <li>Número de teléfono de contacto (para confirmaciones vía WhatsApp).</li>
+            <li>Servicio seleccionado y horario preferido de atención.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="font-serif text-xl font-bold text-wood-50">2. Uso de la Información</h2>
+          <p>
+            Los datos recolectados se utilizan exclusivamente para los siguientes fines específicos:
+          </p>
+          <ul class="list-disc list-inside pl-4 space-y-1 text-xs text-wood-300">
+            <li>Agendar, coordinar y confirmar tu turno solicitado en nuestro salón.</li>
+            <li>Comunicarnos de manera personalizada vía llamada o mensajería instantánea.</li>
+            <li>Garantizar una atención adaptada a tus preferencias específicas de estilo.</li>
+          </ul>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="font-serif text-xl font-bold text-wood-50">3. Seguridad de los Datos</h2>
+          <p>
+            Implementamos rigurosas medidas de seguridad técnicas para evitar el acceso no autorizado, alteración o divulgación de tu información personal. Tus datos jamás serán comercializados, transferidos ni compartidos con terceras empresas bajo ningún concepto.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="font-serif text-xl font-bold text-wood-50">4. Derechos del Titular</h2>
+          <p>
+            Podrás solicitar en cualquier momento la rectificación, actualización o eliminación completa de tu información personal de nuestras bases de datos enviándonos un mensaje directo a nuestras vías oficiales de contacto o presentándote en nuestro salón en Palermo Soho.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

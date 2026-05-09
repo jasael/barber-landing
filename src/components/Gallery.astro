@@ -1,0 +1,72 @@
+---
+// Gallery.astro - Workspaces & Haircuts visual gallery grid
+const items = [
+  {
+    src: "/images/gallery-1.png",
+    alt: "Skin fade corte de cabello real",
+    category: "Cortes de Autor",
+    title: "Degradado Clásico Imperial",
+  },
+  {
+    src: "/images/gallery-2.png",
+    alt: "Herramientas de barbería de alta precisión",
+    category: "Herramientas",
+    title: "El Acero del Ritual",
+  },
+  {
+    src: "/images/gallery-3.png",
+    alt: "Ritual de afeitado con espuma de afeitar en taza de cobre",
+    category: "Afeitados",
+    title: "Espuma y Navaja Tradicional",
+  },
+  {
+    src: "/images/gallery-4.png",
+    alt: "Sillón de cuero de la zona de estar de El Roble",
+    category: "Espacios de Trabajo",
+    title: "El Club de Caballeros",
+  }
+];
+---
+
+<section id="gallery" class="relative py-24 bg-wood-950 overflow-hidden border-t border-wood-900/10">
+  <div class="max-width-container mx-auto px-6 relative z-10 w-full">
+    <!-- Section Title -->
+    <div class="text-center max-w-2xl mx-auto space-y-3 mb-16">
+      <span class="text-xs tracking-[0.25em] text-gold-500 font-bold uppercase block">Inspiración</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-wood-50">
+        Nuestra Galería de Trabajo
+      </h2>
+      <p class="text-xs sm:text-sm text-wood-300 font-light leading-relaxed">
+        Cada detalle del salón y cada corte que realizamos reflejan nuestra obsesión por la perfección y la comodidad del caballero.
+      </p>
+    </div>
+
+    <!-- Gallery Responsive Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+      {items.map((item, index) => (
+        <div class="relative group aspect-square rounded-xl overflow-hidden border border-wood-900/40 hover:border-gold-500/40 transition-all duration-500 shadow-xl overflow-hidden flex items-center justify-center">
+          <!-- Main Image -->
+          <img
+            src={item.src}
+            alt={item.alt}
+            class="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out"
+            loading="lazy"
+          />
+
+          <!-- Dark overlay gradient on hover -->
+          <div class="absolute inset-0 bg-gradient-to-t from-wood-950 via-wood-950/40 to-transparent opacity-60 group-hover:opacity-85 transition-opacity duration-300 z-10 pointer-events-none"></div>
+
+          <!-- Bottom floating labels inside frame -->
+          <div class="absolute bottom-0 left-0 w-full p-6 z-20 flex flex-col space-y-1 transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500 pointer-events-none">
+            <span class="text-[10px] tracking-widest text-gold-400 font-bold uppercase">
+              {item.category}
+            </span>
+            <h3 class="font-serif text-base font-bold text-wood-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              {item.title}
+            </h3>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

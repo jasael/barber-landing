@@ -1,0 +1,75 @@
+---
+// terms.astro - Terms of Service page
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Términos del Servicio | El Roble Barbershop"
+  description="Términos y condiciones legales aplicables a los servicios y visitas en El Roble Barbershop."
+>
+  <Header slot="header" />
+
+  <section class="relative py-24 bg-wood-950">
+    <div class="max-width-container mx-auto px-6 max-w-3xl relative z-10">
+      <!-- Back Button -->
+      <a
+        href="/"
+        id="back-to-home-btn"
+        class="inline-flex items-center space-x-2 text-xs tracking-widest text-gold-500 hover:text-gold-400 font-bold uppercase mb-12 transition-colors"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+        <span>Regresar al Inicio</span>
+      </a>
+
+      <!-- Document Heading -->
+      <div class="space-y-4 mb-12 border-b border-wood-900/30 pb-8">
+        <span class="text-xs tracking-[0.25em] text-gold-500 font-bold uppercase block">Legal</span>
+        <h1 class="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-wood-50">
+          Términos del Servicio
+        </h1>
+        <p class="text-xs text-wood-400 font-light">Última actualización: 9 de Mayo, 2026</p>
+      </div>
+
+      <!-- Legal Content -->
+      <div class="space-y-8 text-sm text-wood-200 font-light leading-relaxed">
+        <p>
+          Te damos la bienvenida al sitio web de <strong>El Roble Barbershop</strong>. Al hacer uso de este portal y solicitar turnos para nuestros servicios de estética y barbería, aceptás expresamente cumplir los siguientes Términos del Servicio.
+        </p>
+
+        <div class="space-y-3">
+          <h2 class="font-serif text-xl font-bold text-wood-50">1. Reservas de Turnos Online</h2>
+          <p>
+            Toda solicitud realizada a través del sitio web representa una reserva tentativa sujeta a confirmación manual de nuestro staff. La reserva quedará plenamente confirmada una vez que te enviemos la notificación oficial por WhatsApp.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="font-serif text-xl font-bold text-wood-50">2. Puntualidad de Citas</h2>
+          <p>
+            Para garantizar que el ritual se realice con el estándar de calidad que nos caracteriza, solicitamos presentarse con 5 a 10 minutos de anticipación. Pasados los 15 minutos de tolerancia, el turno podrá ser cancelado para no comprometer el horario de los clientes subsiguientes.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="font-serif text-xl font-bold text-wood-50">3. Conducta en el Establecimiento</h2>
+          <p>
+            Nos reservamos el derecho de admisión y permanencia en el salón. Mantenemos un ambiente sofisticado, de respeto e intimidad. Cualquier comportamiento ofensivo o inapropiado hacia nuestros profesionales o clientes justificará la suspensión inmediata del servicio.
+          </p>
+        </div>
+
+        <div class="space-y-3">
+          <h2 class="font-serif text-xl font-bold text-wood-50">4. Modificación de los Términos</h2>
+          <p>
+            Nos reservamos el derecho de modificar el diseño, estructura, precios de servicios y estos términos legales en cualquier momento y sin previo aviso para adaptarlos a la evolución de nuestro negocio.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</Layout>

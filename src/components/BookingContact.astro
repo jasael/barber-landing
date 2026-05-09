@@ -1,0 +1,168 @@
+---
+// BookingContact.astro - Interceptable offline booking form and notification
+---
+
+<section id="booking" class="relative py-24 bg-wood-900/10 border-t border-wood-900/20">
+  <div class="absolute inset-y-0 right-0 w-1/3 bg-[radial-gradient(circle_at_top_right,rgba(181,128,85,0.03),transparent_70%)] pointer-events-none"></div>
+
+  <div class="max-width-container mx-auto px-6 relative z-10 w-full max-w-4xl">
+    <!-- Section Title -->
+    <div class="text-center space-y-3 mb-16">
+      <span class="text-xs tracking-[0.25em] text-gold-500 font-bold uppercase block">Reservá Tu Experiencia</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-bold tracking-tight text-wood-50">
+        Agendá un Turno Online
+      </h2>
+      <p class="text-xs sm:text-sm text-wood-300 font-light max-w-xl mx-auto leading-relaxed">
+        Completá tus datos abajo. Nos pondremos en contacto con vos en menos de 10 minutos para confirmar tu horario.
+      </p>
+    </div>
+
+    <!-- Contact & Success Box Container -->
+    <div class="relative bg-wood-900/40 border border-wood-800/40 rounded-2xl p-8 sm:p-12 shadow-2xl overflow-hidden max-w-2xl mx-auto">
+      <!-- Decoratives -->
+      <div class="absolute -top-12 -right-12 w-24 h-24 bg-gold-600/5 rounded-full blur-2xl"></div>
+
+      <!-- Booking Form -->
+      <form id="booking-form" class="space-y-6 transition-all duration-500 origin-center">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Name Field -->
+          <div class="flex flex-col space-y-2">
+            <label for="booking-name" class="text-[10px] tracking-widest text-wood-300 uppercase font-bold">Nombre Completo</label>
+            <input
+              type="text"
+              id="booking-name"
+              name="name"
+              required
+              placeholder="Ej. Juan Pérez"
+              class="px-4 py-3 bg-wood-950/80 border border-wood-800/60 rounded text-sm text-wood-100 placeholder-wood-500 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500/20 transition-all duration-300"
+            />
+          </div>
+
+          <!-- Phone Field -->
+          <div class="flex flex-col space-y-2">
+            <label for="booking-phone" class="text-[10px] tracking-widest text-wood-300 uppercase font-bold">Teléfono de Contacto</label>
+            <input
+              type="tel"
+              id="booking-phone"
+              name="phone"
+              required
+              placeholder="Ej. +54 9 11 2233 4455"
+              class="px-4 py-3 bg-wood-950/80 border border-wood-800/60 rounded text-sm text-wood-100 placeholder-wood-500 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500/20 transition-all duration-300"
+            />
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Service Dropdown -->
+          <div class="flex flex-col space-y-2">
+            <label for="booking-service" class="text-[10px] tracking-widest text-wood-300 uppercase font-bold">Elegir Servicio</label>
+            <select
+              id="booking-service"
+              name="service"
+              required
+              class="px-4 py-3 bg-wood-950/80 border border-wood-800/60 rounded text-sm text-wood-100 placeholder-wood-500 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500/20 transition-all duration-300 appearance-none cursor-pointer"
+            >
+              <option value="" disabled selected>Seleccioná un servicio</option>
+              <option value="corte">Corte de Cabello Real ($4.500)</option>
+              <option value="barba">Perfilado de Barba y Spa ($3.500)</option>
+              <option value="combo">Combo Roble Imperial ($7.000)</option>
+              <option value="afeitado">Afeitado Tradicional ($3.200)</option>
+            </select>
+          </div>
+
+          <!-- Preferable Time Slot -->
+          <div class="flex flex-col space-y-2">
+            <label for="booking-time" class="text-[10px] tracking-widest text-wood-300 uppercase font-bold">Horario Preferido</label>
+            <select
+              id="booking-time"
+              name="time"
+              required
+              class="px-4 py-3 bg-wood-950/80 border border-wood-800/60 rounded text-sm text-wood-100 placeholder-wood-500 focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500/20 transition-all duration-300 appearance-none cursor-pointer"
+            >
+              <option value="" disabled selected>Seleccioná un horario</option>
+              <option value="manana">Mañana (09:00 - 13:00)</option>
+              <option value="mediodia">Mediodía (13:00 - 16:00)</option>
+              <option value="tarde">Tarde (16:00 - 20:00)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="pt-4">
+          <button
+            type="submit"
+            id="booking-submit-btn"
+            class="w-full relative inline-flex items-center justify-center px-8 py-4 overflow-hidden font-semibold text-xs tracking-widest text-wood-950 uppercase bg-gold-500 rounded transition-all duration-300 hover:bg-gold-400 active:scale-[0.98]"
+          >
+            Confirmar Solicitud de Turno
+          </button>
+        </div>
+      </form>
+
+      <!-- Custom Success Modal State (Hidden Initially) -->
+      <div
+        id="booking-success-msg"
+        class="hidden absolute inset-0 bg-wood-950/95 flex flex-col items-center justify-center text-center p-8 sm:p-12 transition-all duration-500 opacity-0 transform scale-95"
+      >
+        <div class="w-16 h-16 bg-gold-500/10 border border-gold-500/40 rounded-full flex items-center justify-center text-gold-400 mb-6 animate-bounce">
+          <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="font-serif text-2xl font-bold text-wood-50 mb-2">¡Solicitud Enviada Exitosamente!</h3>
+        <p class="text-xs sm:text-sm text-wood-200 font-light max-w-sm mb-8 leading-relaxed">
+          Gracias <span id="success-user-name" class="font-bold text-gold-400"></span>. Tu solicitud para <span id="success-service-name" class="font-semibold text-gold-400"></span> ha sido enviada. Te enviaremos un WhatsApp de confirmación en breve.
+        </p>
+        <button
+          id="success-close-btn"
+          class="inline-flex items-center justify-center px-8 py-3 border border-gold-500/30 hover:border-gold-500 font-semibold text-xs tracking-widest text-gold-400 hover:text-gold-300 uppercase rounded transition-colors"
+        >
+          Volver a Agendar
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const form = document.getElementById('booking-form') as HTMLFormElement | null;
+  const successBox = document.getElementById('booking-success-msg');
+  const userNameSpan = document.getElementById('success-user-name');
+  const serviceNameSpan = document.getElementById('success-service-name');
+  const closeBtn = document.getElementById('success-close-btn');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Collect data
+    const nameInput = document.getElementById('booking-name') as HTMLInputElement | null;
+    const serviceSelect = document.getElementById('booking-service') as HTMLSelectElement | null;
+
+    if (nameInput && serviceSelect) {
+      const userName = nameInput.value;
+      const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text;
+
+      // Populate success message
+      if (userNameSpan) userNameSpan.textContent = userName;
+      if (serviceNameSpan) serviceNameSpan.textContent = serviceName;
+
+      // Toggle styles
+      successBox?.classList.remove('hidden');
+      setTimeout(() => {
+        successBox?.classList.add('opacity-100', 'scale-100');
+        successBox?.classList.remove('opacity-0', 'scale-95');
+      }, 10);
+    }
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    if (successBox) {
+      successBox.classList.remove('opacity-100', 'scale-100');
+      successBox.classList.add('opacity-0', 'scale-95');
+      setTimeout(() => {
+        successBox.classList.add('hidden');
+        form?.reset();
+      }, 500);
+    }
+  });
+</script>

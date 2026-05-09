@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  /* Premium Wood Palette */
+  --color-wood-50: #fbf9f8;
+  --color-wood-100: #f5eeea;
+  --color-wood-200: #e8dbd4;
+  --color-wood-300: #d5be14;
+  --color-wood-300: #d3beaf;
+  --color-wood-400: #b59580;
+  --color-wood-500: #977158;
+  --color-wood-600: #815e47;
+  --color-wood-700: #6b4d3a;
+  --color-wood-800: #553e30;
+  --color-wood-900: #2b1d15;
+  --color-wood-950: #0f0a07;
+
+  /* Radiant Gold/Brass Accents */
+  --color-gold-50: #fefdf6;
+  --color-gold-100: #fbf8e7;
+  --color-gold-200: #f6eed1;
+  --color-gold-300: #eedda3;
+  --color-gold-400: #e2c262;
+  --color-gold-500: #d4a32c;
+  --color-gold-600: #b88522;
+  --color-gold-700: #95661b;
+  --color-gold-800: #744e18;
+  --color-gold-900: #5f3f17;
+  --color-gold-950: #38220a;
+}
+
+/* Base custom styles & reset overrides */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* Header Height spacing */
+  background-color: var(--color-wood-950);
+  color: var(--color-wood-100);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Font styles config */
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Custom CSS Shapes */
+.clip-diagonal {
+  clip-path: polygon(0 2%, 100% 0, 100% 98%, 0 100%);
+}
+
+.clip-slanted {
+  clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 92%);
+}
+
+/* Max Width Layout Constraint */
+.max-width-container {
+  max-width: 1200px;
+}
+
+/* Premium smooth fade up entry animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
